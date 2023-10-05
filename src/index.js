@@ -1,5 +1,9 @@
-import mainPage from './main-page.js';
+import homePage from './home.js';
+import { createElementWithID } from './dom.js';
 
-const pageContent = document.querySelector('#content');
 
-pageContent.appendChild(mainPage);
+const pageContent = createElementWithID('div', 'content');
+
+//construct page
+pageContent.appendChild(homePage);
+document.body.appendChild(pageContent);
