@@ -6,4 +6,4 @@ const createElementWithID = (type='div', id='') => {
     return element;
 };
 
-export {createElementWithID };
+export { createElementWithID };
