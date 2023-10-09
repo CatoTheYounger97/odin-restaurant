@@ -5,7 +5,7 @@ import { createElementWithID } from './dom.js';
 // footer = text 
 // home content = headline, img, para
 
-const createhomePageElement = () => {
+const createHomePageElement = () => {
     const homeContent = createElementWithID('div', 'home-content');
 
     const heading = createElementWithID('h1', 'home-heading');
@@ -26,4 +26,4 @@ const createhomePageElement = () => {
     return homeContent;
 };
 
-export default createhomePageElement();
+export default createHomePageElement();
