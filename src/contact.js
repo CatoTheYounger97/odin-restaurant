@@ -4,22 +4,34 @@ import { createElementWithID } from './dom.js';
 // contact card x3
 // contact card - name, role, tele, email
 
-const createContactCard = () => {
-    const cardContainer = createElementWithID('div', 'contact-container');
-    const numberOfCards = 3;
+function Card(name, role, tele, email, pic) {
+    this.name = name ?? '';
+    this.role = role ?? '';
+    this.tele = tele ?? '';
+    this.email = email ?? '';
+    this.pic = pic ?? '';
+    this.detailArray = [this.name, this.role, this.tele, this.email];
 
-    for (let i = 1; i <= numberOfCards; ++i)
-    {
-        const card = createElementWithID('div', `contact ${i}`);
-        card.className = 'ContactCard';
-        card.textContent = `Contact Card ${i}`;
+    this.domNode = () => {
+        const cardDetail = document.createElement('ul');
+        
+        this.detailArray.forEach( (element) => {
+            const node = document.createElement('li');
+            node.textContent = element;
+            cardDetail.appendChild(node);
+        });
+        
+        const contactPhoto = document.createElement('img');
+        contactPhoto.src = pic;
+        cardDetail.appendChild(contactPhoto);
+        
+        // build contact card
+        const card = createElementWithID('div', `${name}-card`);
+        card.appendChild(cardDetail);
+        return card;
+    };
+}
 
-        cardContainer.appendChild(card);
-    }
-
-    return cardContainer;
-
-};
 
 const createContactPageElement = () => {
     const contactContent = createElementWithID('div', 'contact-content');
@@ -27,10 +39,12 @@ const createContactPageElement = () => {
     const heading = createElementWithID('h1', 'contact-heading');
     heading.textContent = 'Contact Us';
 
-    const contactCards = createContactCard();
+    const cardOne = new Card('Emperor', 'head chef', '5555', 'emperor@chef.com');
+    const cardTwo = new Card('Empress', 'General Manager', '7777', 'empress@chef.com');
 
     contactContent.appendChild(heading);
-    contactContent.appendChild(contactCards);
+    contactContent.appendChild(cardOne.domNode());
+    contactContent.appendChild(cardTwo.domNode());
 
     return contactContent;
 };
