@@ -24,10 +24,17 @@ for (let i = 1; i <= numberOfButtons; ++i)
 {
     const button = createElementWithID('button', `button ${i}`);
     button.className = 'NavButton';
-    button.textContent = i;
     pageHeader.appendChild(button);
     button.addEventListener('click', (button) => pageSwitch(button.target));
+
+    switch(button.id)
+    {
+        case 'button 1': button.textContent = 'HOME'; break;
+        case 'button 2': button.textContent = 'MENU'; break;
+        case 'button 3': button.textContent = 'CONTACT'; break;
+    }
 }
+
 
 // construct footer
 const pageFooter = createElementWithID('footer', 'footer');
