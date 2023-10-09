@@ -9,7 +9,7 @@ const createHomePageElement = () => {
     const homeContent = createElementWithID('div', 'home-content');
 
     const heading = createElementWithID('h1', 'home-heading');
-    heading.textContent = 'My Restaurant Page';
+    heading.textContent = 'Emperor Family Restaurant';
 
     const image = createElementWithID('img', 'home-image');
     image.setAttribute('src', homeImage);

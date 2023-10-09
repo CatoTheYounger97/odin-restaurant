@@ -31,7 +31,7 @@ for (let i = 1; i <= numberOfButtons; ++i)
 
 // construct footer
 const pageFooter = createElementWithID('footer', 'footer');
-pageFooter.textContent = 'footer content';
+pageFooter.textContent = 'Restaurant Page for The Odin Project';
 
 // construct page content
 const pageContent = createElementWithID('div', 'content');
