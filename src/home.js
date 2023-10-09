@@ -1,4 +1,4 @@
-import homeImage from './home.jpg';
+import homeImage from './img/home.jpg';
 import { createElementWithID } from './dom.js';
 
 // header = title 

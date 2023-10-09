@@ -1,4 +1,8 @@
 import { createElementWithID } from './dom.js';
+import contactPhotoOne from './img/contact1.jpg';
+import contactPhotoTwo from './img/contact2.jpg';
+import contactPhotoThree from './img/contact3.jpg';
+
 
 // heading
 // contact card x3
@@ -23,11 +27,15 @@ function Card(name, role, tele, email, pic) {
         
         const contactPhoto = document.createElement('img');
         contactPhoto.src = pic;
-        cardDetail.appendChild(contactPhoto);
+        contactPhoto.height = 100;
+        // contactPhoto.width = 100;
         
         // build contact card
         const card = createElementWithID('div', `${name}-card`);
+        card.className = 'ContactCard';
         card.appendChild(cardDetail);
+        card.appendChild(contactPhoto);
+
         return card;
     };
 }
@@ -39,12 +47,15 @@ const createContactPageElement = () => {
     const heading = createElementWithID('h1', 'contact-heading');
     heading.textContent = 'Contact Us';
 
-    const cardOne = new Card('Emperor', 'head chef', '5555', 'emperor@chef.com');
-    const cardTwo = new Card('Empress', 'General Manager', '7777', 'empress@chef.com');
+    const cardOne = new Card('Emperor', 'Head Chef', '555-555-555', 'emperor@chef.com', contactPhotoOne);
+    const cardTwo = new Card('Empress', 'General Manager', '777-777-777', 'empress@chef.com', contactPhotoTwo);
+    const cardThree = new Card('Prince', 'Waiter', '333-333-333', 'prince@chef.com', contactPhotoThree);
 
     contactContent.appendChild(heading);
     contactContent.appendChild(cardOne.domNode());
     contactContent.appendChild(cardTwo.domNode());
+    contactContent.appendChild(cardThree.domNode());
+
 
     return contactContent;
 };
